@@ -397,6 +397,31 @@ main{
     height:8px;
     border-radius: 25px; 
 }
+.w430:hover .switch_img{
+    display: block;
+}
+.w430 .switch_img{
+    width: 430px;
+    position: absolute;
+    top: 112.5px;
+    display: none;
+}
+.w430 .switch_img button{
+    width: 50px;
+    height: 100px;
+    outline: transparent;
+    border: none;
+    background: rgba(0,0,0,.2);
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+.w430 .switch_img button.upper{
+    float: left;
+}
+.w430 .switch_img button.next{
+    float: right;
+}
 /* .w430 ul li:hover{
     width:20px;
     height:8px;

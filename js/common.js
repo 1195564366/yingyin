@@ -105,6 +105,31 @@ function carousel(data){    //定义轮播方法;
             }
             x = a;
         })
+        $(".upper").click(function(){
+            x--;
+            if(x <= 1){
+                x = t.length+1;
+            }
+            var a = x;
+            $(".w430>img").attr("src",data[a-2].img);
+            $(".w430>.mask>span:first-child").html(data[a-2].title);
+            $(".w430>.mask>span:last-child").html(data[a-2].container);
+            $(t).attr("class","");
+            $(t[a-2]).attr("class","active");
+        })
+        $(".next").click(function(){
+            // console.log("x="+x);
+            if(x==t.length+1){
+                x=1;
+            }
+            var a = x;
+            $(".w430>img").attr("src",data[a-1].img);
+            $(".w430>.mask>span:first-child").html(data[a-1].title);
+            $(".w430>.mask>span:last-child").html(data[a-1].container);
+            $(t).attr("class","");
+            $(t[a-1]).attr("class","active");
+            x++;
+        })
         if(x==(data.length+1)){
             x=1;
         }
@@ -129,7 +154,6 @@ function carousel(data){    //定义轮播方法;
     },3000); 
     $(".w430").mouseover(function(){
         clearInterval(timer);
-        console.log("停止");
     }).mouseout(function(){
         timer = setInterval(function abc(){
         if(x==(data.length+1)){
@@ -143,7 +167,6 @@ function carousel(data){    //定义轮播方法;
         x++;
         
     },3000);
-        console.log("启动")
     })
 }
 
@@ -175,8 +198,8 @@ $(".main_3 .consultation_left .title_header ul").on('mouseover','li',function(){
 
 
 /**
- * @param  {} x 
- * @param  {} y
+ * @param  {} x 包裹搜索 ul li的元素
+ * @param  {} y 搜索ul下的第一个li元素
  */
 function search(x,y){  
     $(x).click(function(){
@@ -186,6 +209,7 @@ function search(x,y){
         $(this).html(a);
     })
 }
+
 $(document).ready(function(){  
     header();
     footer();
